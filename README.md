@@ -66,6 +66,3 @@ Twitter: https://x.com/kamiyeoladiipo
 GitHub: https://github.com/thekamiyeoladipo
 Thank you for checking out my first Web3 project! I'm excited to share this journey with you all. 🚀
 
-Feel free to copy this entire text directly into your README.md file.
-
-Cartesi-
