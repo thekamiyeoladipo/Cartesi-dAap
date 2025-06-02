@@ -130,14 +130,19 @@ console.log(calculateSquareRoot(100));
 
 
 // Building an email masker
-const maskEmail = () => {
-  return function(email) {
-    const atIndex = email.indexOf("@");
-    if (atIndex === -1) return email;
-    const masked = email[0] + "***";
-    const domain = email.slice(atIndex);
-    return masked + domain;
-  };
+function maskEmail(email) {
+  const atIndex = email.indexOf("@");
+  if (atIndex === -1) return email;
+  const name = email.slice(0, atIndex);
+  const domain = email.slice(atIndex);
+  if (name.length <= 2) {
+    // If name is 2 or fewer chars, mask only the middle if possible
+    return name[0] + "*".repeat(Math.max(0, name.length - 2)) + (name.length > 1 ? name[name.length - 1] : "") + domain;
+  }
+  // Mask all chars between first and last with *
+  const maskedName = name[0] + "*".repeat(name.length - 2) + name[name.length - 1];
+  return maskedName + domain;
 }
-var email = "apple.pie@example.com"
-maskEmail(email);
+
+console.log(maskEmail("apple.pie@example.com")); // a*******e@example.com
+console.log(maskEmail("freecodecamp@example.com")); // f**********p@example.com
