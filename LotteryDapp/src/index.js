@@ -104,3 +104,40 @@ var finish = { status: "accept" };
     }
   }
 })();
+
+
+
+// Js practice from FCC
+function calculateQuotient(num1, num2) {
+  if (num2 === 0) {
+    return "Error: Division by zero";
+  }
+  return num1 / num2;
+}
+
+const calculateSquare = (num) => {
+  return Math.pow(num, 2);
+};
+
+console.log(calculateSquare(2));
+console.log(calculateSquare(9));
+
+const calculateSquareRoot= (num) => {
+ return Math.sqrt(num);
+}
+console.log(calculateSquareRoot(25));
+console.log(calculateSquareRoot(100));
+
+
+// Building an email masker
+const maskEmail = () => {
+  return function(email) {
+    const atIndex = email.indexOf("@");
+    if (atIndex === -1) return email;
+    const masked = email[0] + "***";
+    const domain = email.slice(atIndex);
+    return masked + domain;
+  };
+}
+var email = "apple.pie@example.com"
+maskEmail(email);
